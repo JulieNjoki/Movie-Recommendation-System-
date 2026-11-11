@@ -14,20 +14,6 @@ working system.
 | 3. Model development  | `notebooks/03_model_development.ipynb` | Tuned SVD, top-5 rules |
 | 4. Model evaluation  | `notebooks/04_model_evaluation.ipynb` | Accuracy, ranking and variety results |
 
-
-
-**From Python**
-
-```python
-from src.recommender import MovieRecommender
-
-rec = MovieRecommender()
-rec.search_movies("matrix")                     # find movieIds by title
-rec.popular_movies(10)                          # easy movies to rate first
-
-my_ratings = {2571: 5.0, 260: 4.5, 318: 5.0, 296: 4.0, 1: 4.5}   # {movieId: rating}
-rec.recommend(my_ratings, n=5)
-```
 ## How it works
 
 
