@@ -90,31 +90,11 @@ The scoring in `src/recommender.py` equals `model.predict(user, movie, clip=Fals
 | Cold start | Unseen movies RMSE 1.03; users with 25 or fewer ratings RMSE about 1.0 |
 | Errors | Predictions compress toward the middle: true 0.5-star ratings are over-predicted by 2.4 stars, 5-star ratings under-predicted by 1.0 |
 
-Caveat from James's notebook: the offline test only counts movies users happened to rate, which favours popularity
+Caveat from Phase 3 notebook: the offline test only counts movies users happened to rate, which favours popularity
 lists, so the popularity result is a warning rather than proof users would prefer it.
 
-## 6. The interface (Phase 5)
 
-### 6.1 Components
-| File | Role |
-|---|---|
-| `src/recommender.py` | `MovieRecommender` class: `search_movies`, `popular_movies`, `validate_ratings`, `recommend` |
-| `app.py` | Streamlit app: search or browse popular movies, rate with a slider, review and delete ratings, get top 5 |
-| `cli.py` | Terminal version of the same flow, plus `--demo` |
-| `notebooks/05_integration_and_demo.ipynb` | Executed walk-through: stage-output checks, evaluation summary, example run |
-| `tests/test_recommender.py` | 12 automated tests |
-
-### 6.2 Receiving user ratings
-Input is `{movieId: rating}`. Users find movies by title search or from a list of the most-rated movies. Validation
-rejects: fewer than 5 ratings, a movieId not in the catalogue, ratings outside 0.5 to 5.0, and ratings that are not
-half-star steps.
-
-### 6.3 Connecting input to the model and displaying five movies
-`MovieRecommender.recommend(ratings, n=5)` appends the user's ratings, refits the SVD, scores eligible unseen movies and
-returns a table of rank, movieId, title, year, genres and predicted rating. The app and CLI display the five rows.
-
-
-## 7. Limitations and recommended next steps
+## 6. Limitations and recommended next steps
 
 
 1. **Revisit the model choice.** Item-KNN is more accurate and far more varied. Its cost is a ~9,700 x 9,700
@@ -132,14 +112,6 @@ returns a table of rank, movieId, title, year, genres and predicted rating. The 
 6. **Possible extras:** movie posters via `links_clean.csv` (TMDB IDs; needs an API key), saving user profiles, a "why this
    movie" explanation.
 
-## 8. Reproducing the work
-
-```bash
-pip install -r requirements.txt
-python -m pytest -q                 # checks
-streamlit run app.py                # interface
-jupyter notebook notebooks/         # analysis
-```
 
 The analysis notebooks were written before the folders were reorganised. Their file paths need these one-line edits to
 run from this layout (they run unchanged when the CSVs sit next to them or in a `processed/` folder beside them):
@@ -151,7 +123,7 @@ run from this layout (they run unchanged when the CSVs sit next to them or in a 
 | `03_model_development` | `PROCESSED_DIR = '../data/processed/'` |
 | `04_model_evaluation` | `PROCESSED_DIR = '../data/processed/'` |
 
-Notebooks 03 and 04 also need `scikit-surprise`; notebook 03 writes `phase3_outputs/` (ignored by git) and 04 writes `eval_summary.json`.
+Notebooks 03 and 04 also need `scikit-surprise`; notebook 03 writes `phase3_outputs/` and 04 writes `eval_summary.json`.
 
 ## 9. Team and credits
 
