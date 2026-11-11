@@ -48,16 +48,6 @@ working system.
 * **Item-based KNN did slightly better than SVD** on the held-out test set (RMSE 0.862 vs 0.8745) and gave far more
   variety (262 vs 134 distinct movies). Phase 3 chose SVD for size and speed; see the documentation for the trade-off.
 
-## Tests
-
-```bash
-python -m pytest -q
-```
-
-Covers the consistency of the stage outputs (train + test = cleaned ratings, matching IDs), input validation, and the
-recommendation rules (five unique movies, no
-ne already rated, all with at least 30 ratings, deterministic, different
-tastes give different lists).
 
 ## Data
 
