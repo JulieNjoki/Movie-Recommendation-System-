@@ -30,7 +30,7 @@ Section 7 lists these limits and what to do about them.
 | `tags.csv` | 3,683 | userId, movieId, tag, timestamp |
 | `links.csv` | 9,742 | movieId, imdbId, tmdbId |
 
-### 3.2 What EDA found (Phase 1)
+### 3.2 What EDA found
 * 610 users, 9,724 rated movies (18 catalogue movies were never rated); the user-movie matrix is **98.3% empty**.
 * Ratings run 0.5 to 5.0; mean 3.50, mode 4.0, 48% are 4 stars or higher.
 * Median user has about 70 ratings (range 20 to 2,698).
@@ -38,7 +38,7 @@ Section 7 lists these limits and what to do about them.
 * Genres: Drama and Comedy dominate; Film-Noir, IMAX, Western and Documentary are rare.
 * Tags: sparse and written mostly by five users, so treated as a supplement only.
 
-### 3.3 What cleaning did (Phase 2)
+### 3.3 What cleaning did
 * No missing values, duplicate ratings, invalid ratings or orphan IDs in the ratings data.
 * Extracted release year and a clean title; one-hot encoded 19 genres; kept 34 "no genre" movies flagged rather than creating a fake genre.
 * Tags lower-cased and de-duplicated; the non-descriptive tag "in netflix queue" (131 rows) removed.
@@ -113,14 +113,9 @@ half-star steps.
 `MovieRecommender.recommend(ratings, n=5)` appends the user's ratings, refits the SVD, scores eligible unseen movies and
 returns a table of rank, movieId, title, year, genres and predicted rating. The app and CLI display the five rows.
 
-### 6.4 Testing performed
-* 12 pytest tests pass (data consistency, validation, recommendation rules, determinism, search).
-* The Streamlit app was exercised with Streamlit's `AppTest` harness: the button stays disabled below 5 ratings, search and add work, and recommendations render.
-* The CLI was run in both demo and interactive modes.
 
 ## 7. Limitations and recommended next steps
 
-Ordered by expected value, building on James's Section 10.
 
 1. **Revisit the model choice.** Item-KNN is more accurate and far more varied. Its cost is a ~9,700 x 9,700
    similarity table (around 650 MB or more in Surprise), which is why Phase 3 avoided it. A practical route is to precompute
