@@ -9,11 +9,11 @@ working system.
 
 | Phase | Owner | Notebook | Output |
 |---|---|---|---|
-| 1. Data exploration (EDA) | Alex | `notebooks/01_data_exploration.ipynb` | Understanding of sparsity, long tail, cold start |
-| 2. Data cleaning | Sheilla | `notebooks/02_data_cleaning.ipynb` | `data/processed/*.csv` (clean tables, train/test split) |
-| 3. Model development | Kevin | `notebooks/03_model_development.ipynb` | Tuned SVD, top-5 rules |
-| 4. Model evaluation | James | `notebooks/04_model_evaluation.ipynb` | Accuracy, ranking and variety results |
-| 5. Integration and interface | Julie | `notebooks/05_integration_and_demo.ipynb`, `src/`, `app.py`, `cli.py` | Working recommender |
+| 1. Data exploration (EDA)  | `notebooks/01_data_exploration.ipynb` | Understanding of sparsity, long tail, cold start |
+| 2. Data cleaning  | `notebooks/02_data_cleaning.ipynb` | `data/processed/*.csv` (clean tables, train/test split) |
+| 3. Model development  | `notebooks/03_model_development.ipynb` | Tuned SVD, top-5 rules |
+| 4. Model evaluation  | `notebooks/04_model_evaluation.ipynb` | Accuracy, ranking and variety results |
+| 5. Integration and interface  | `notebooks/05_integration_and_demo.ipynb`, `src/`, `app.py`, `cli.py` | Working recommender |
 
 ## Quick start
 
