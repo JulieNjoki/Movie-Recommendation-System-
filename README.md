@@ -13,7 +13,7 @@ working system.
 | 2. Data cleaning  | `notebooks/02_data_cleaning.ipynb` | `data/processed/*.csv` (clean tables, train/test split) |
 | 3. Model development  | `notebooks/03_model_development.ipynb` | Tuned SVD, top-5 rules |
 | 4. Model evaluation  | `notebooks/04_model_evaluation.ipynb` | Accuracy, ranking and variety results |
-| 5. Integration and interface  | `notebooks/05_integration_and_demo.ipynb`, `src/`, `app.py`, `cli.py` | Working recommender |
+
 
 
 **From Python**
@@ -41,15 +41,10 @@ rec.recommend(my_ratings, n=5)
 ## Repository layout
 
 ```
-├── app.py                      Streamlit web interface
-├── cli.py                      Command-line interface
-├── src/recommender.py          Integration layer: loads data, validates input, fits the model, returns top 5
-├── tests/test_recommender.py   Automated checks (python -m pytest -q)
 ├── data/raw/                   Original MovieLens CSVs (EDA and cleaning input)
 ├── data/processed/             Cleaned CSVs and train/test split (cleaning output)
-├── notebooks/                  The five phase notebooks
+├── notebooks/                  The four phase notebooks
 ├── docs/PROJECT_DOCUMENTATION.md   Full write-up: method, results, limitations
-├── docs/MERGE_GUIDE.md         Git steps used to combine the branches
 └── requirements.txt
 ```
 
