@@ -13,7 +13,7 @@ Section 7 lists these limits and what to do about them.
 ## 2. Project phases and hand-offs
 
 | Phase | Input | Output | 
-|---|---|---|---|
+|---|---|---|
 | 1 EDA  | raw CSVs | Findings on data shape and quality |
 | 2 Cleaning  | raw CSVs | `data/processed/` (clean tables, train/test) | 
 | 3 Modelling  | `train.csv`, `movies_clean.csv` | Tuned SVD, `recommend_top5()` rules | 
