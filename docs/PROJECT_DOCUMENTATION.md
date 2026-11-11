@@ -160,6 +160,6 @@ Notebooks 03 and 04 also need `scikit-surprise`; notebook 03 writes `phase3_outp
 
 ## 9. Team and credits
 
-Alex Gathuru, Sheilla Chrtotich, Darius Mutahi, James Musyoki, Kevin Basiye, Julie Njoroge
+Alex Gathuru, Sheilla Cherotich, Darius Mutahi, James Musyoki, Kevin Basiye and Julie Njoroge
 
 Data: MovieLens `ml-latest-small`, GroupLens Research, University of Minnesota.
