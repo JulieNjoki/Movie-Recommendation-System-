@@ -15,25 +15,6 @@ working system.
 | 4. Model evaluation  | `notebooks/04_model_evaluation.ipynb` | Accuracy, ranking and variety results |
 | 5. Integration and interface  | `notebooks/05_integration_and_demo.ipynb`, `src/`, `app.py`, `cli.py` | Working recommender |
 
-## Quick start
-
-```bash
-python -m venv .venv && source .venv/bin/activate      # Windows: .venv\Scripts\activate
-pip install -r requirements.txt
-```
-
-**Web app**
-
-```bash
-streamlit run app.py
-```
-
-**Command line**
-
-```bash
-python cli.py            # interactive: rate movies, get your top 5
-python cli.py --demo     # runs a built-in example profile
-```
 
 **From Python**
 
@@ -47,23 +28,8 @@ rec.popular_movies(10)                          # easy movies to rate first
 my_ratings = {2571: 5.0, 260: 4.5, 318: 5.0, 296: 4.0, 1: 4.5}   # {movieId: rating}
 rec.recommend(my_ratings, n=5)
 ```
-
-> Windows note: `scikit-surprise` compiles C code on install. If `pip install` fails, install the
-> Microsoft C++ Build Tools, or use `conda install -c conda-forge scikit-surprise`.
-
 ## How it works
 
-```
-data/raw/*.csv ──(02 cleaning)──> data/processed/*.csv ──┐
-                                                         │  ratings_clean.csv + the new user's ratings
-user input {movieId: rating} ──> validate ───────────────┤
-                                                         ▼
-                                      fit tuned SVD (150 factors, 30 epochs, lr 0.01, reg 0.1)
-                                                         │
-                                      score every movie with >= 30 ratings the user has not rated
-                                                         ▼
-                                                   top 5 by predicted rating
-```
 
 1. **Input.** Ratings are `{movieId: rating}`, 0.5 to 5.0 in half-star steps, at least 5 movies.
    Bad input (unknown movie, out-of-range rating, too few ratings) raises `InvalidRatingError` with a readable message.
@@ -87,9 +53,7 @@ user input {movieId: rating} ──> validate ───────────�
 └── requirements.txt
 ```
 
-## Known limitations (from the Phase 4 evaluation)
-
-Please read these before judging the output; they are findings of our own evaluation, not afterthoughts.
+## Known limitations 
 
 * **Accuracy is modest.** Test RMSE 0.8745 stars, only about 1% better than a model that knows nothing except
   user and movie averages (0.884). It is about 17% better than guessing the global mean.
@@ -110,7 +74,8 @@ python -m pytest -q
 ```
 
 Covers the consistency of the stage outputs (train + test = cleaned ratings, matching IDs), input validation, and the
-recommendation rules (five unique movies, none already rated, all with at least 30 ratings, deterministic, different
+recommendation rules (five unique movies, no
+ne already rated, all with at least 30 ratings, deterministic, different
 tastes give different lists).
 
 ## Data
