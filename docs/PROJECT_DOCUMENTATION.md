@@ -160,5 +160,6 @@ Notebooks 03 and 04 also need `scikit-surprise`; notebook 03 writes `phase3_outp
 
 ## 9. Team and credits
 
-Phase 1 Alex, Phase 2 Sheilla, Phase 3 Kevin, Phase 4 James, Phase 5 Julie (names as recorded in the notebooks).
+Alex Gathuru, Sheilla Chrtotich, Darius Mutahi, James Musyoki, Kevin Basiye, Julie Njoroge
+
 Data: MovieLens `ml-latest-small`, GroupLens Research, University of Minnesota.
