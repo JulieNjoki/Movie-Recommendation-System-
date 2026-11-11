@@ -13,7 +13,7 @@ Section 7 lists these limits and what to do about them.
 ## 2. Project phases and hand-offs
 
 | Phase | Input | Output | Key decisions |
-|---|---|---|---|---|
+|---|---|---|---|
 | 1 EDA  | raw CSVs | Findings on data shape and quality | Split per user, not by date (most users rated everything in one sitting); tags too sparse to be a main signal |
 | 2 Cleaning  | raw CSVs | `data/processed/` (clean tables, train/test) | Flags instead of deletions; no rating threshold applied; 20% of each user's ratings held out (seed 42) |
 | 3 Modelling  | `train.csv`, `movies_clean.csv` | Tuned SVD, `recommend_top5()` rules | SVD chosen over item-KNN as tie-break on size and speed; movies need at least 30 ratings to be recommended |
