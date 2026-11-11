@@ -18,7 +18,6 @@ Section 7 lists these limits and what to do about them.
 | 2 Cleaning  | raw CSVs | `data/processed/` (clean tables, train/test) | Flags instead of deletions; no rating threshold applied; 20% of each user's ratings held out (seed 42) |
 | 3 Modelling  | `train.csv`, `movies_clean.csv` | Tuned SVD, `recommend_top5()` rules | SVD chosen over item-KNN as tie-break on size and speed; movies need at least 30 ratings to be recommended |
 | 4 Evaluation  | `train.csv`, `test.csv` | Metrics and verdict | See section 5 |
-| 5 Integration | all of the above | This repository | See sections 4 and 6 |
 
 ## 3. Data
 
