@@ -1,0 +1,2 @@
+n_factors,n_epochs,lr_all,reg_all,random_state,item_knn_best_k,svd_cv_rmse,svd_cv_mae,itemknn_cv_rmse,itemknn_cv_mae
+150,30,0.01,0.1,42,60,0.8603416159362485,0.6607988653078012,0.8622247836714976,0.6583532181335399
