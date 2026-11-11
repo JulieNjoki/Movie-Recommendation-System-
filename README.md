@@ -7,8 +7,8 @@ system returns **five movies they have not rated, ranked by predicted rating**.
 The project was built in five phases, one per team member and branch. This repository joins them into one
 working system.
 
-| Phase | Owner | Notebook | Output |
-|---|---|---|---|
+| Phase | Notebook | Output |
+|---|---|---|
 | 1. Data exploration (EDA)  | `notebooks/01_data_exploration.ipynb` | Understanding of sparsity, long tail, cold start |
 | 2. Data cleaning  | `notebooks/02_data_cleaning.ipynb` | `data/processed/*.csv` (clean tables, train/test split) |
 | 3. Model development  | `notebooks/03_model_development.ipynb` | Tuned SVD, top-5 rules |
